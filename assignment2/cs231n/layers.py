@@ -23,7 +23,10 @@ def affine_forward(x, w, b):
     ###########################################################################
     # TODO: Copy over your solution from Assignment 1.                        #
     ###########################################################################
-    # 
+
+    reshape_x = np.reshape(x, (x.shape[0], -1))
+    out = reshape_x.dot(w) + b
+
     ###########################################################################
     #                             END OF YOUR CODE                            #
     ###########################################################################
@@ -51,7 +54,14 @@ def affine_backward(dout, cache):
     ###########################################################################
     # TODO: Copy over your solution from Assignment 1.                        #
     ###########################################################################
-    # 
+    
+    reshape_x = np.reshape(x, (x.shape[0], -1)) # N x D
+
+    dreshape_x = dout.dot(w.T)
+    dx = np.reshape(dreshape_x, x.shape)
+    dw = reshape_x.T.dot(dout)
+    db = dout.sum(axis=0)
+
     ###########################################################################
     #                             END OF YOUR CODE                            #
     ###########################################################################
@@ -72,7 +82,9 @@ def relu_forward(x):
     ###########################################################################
     # TODO: Copy over your solution from Assignment 1.                        #
     ###########################################################################
-    # 
+    
+    out = np.maximum(x, 0)
+
     ###########################################################################
     #                             END OF YOUR CODE                            #
     ###########################################################################
@@ -194,7 +206,19 @@ def batchnorm_forward(x, gamma, beta, bn_param):
         # Referencing the original paper (https://arxiv.org/abs/1502.03167)   #
         # might prove to be helpful.                                          #
         #######################################################################
-        pass
+        
+        # Calculate output
+        sample_mean = np.mean(x, axis=0)
+        sample_var = np.var(x, axis=0)
+        x_hat = (x - sample_mean) / np.sqrt(sample_var + eps)
+        out = gamma * x_hat + beta
+
+        # Update running_mean & running_var
+        running_mean = momentum * running_mean + (1 - momentum) * sample_mean
+        running_var = momentum * running_var + (1 - momentum) * sample_var
+
+        # TODO: Assign cache
+
         #######################################################################
         #                           END OF YOUR CODE                          #
         #######################################################################
@@ -205,7 +229,12 @@ def batchnorm_forward(x, gamma, beta, bn_param):
         # then scale and shift the normalized data using gamma and beta.      #
         # Store the result in the out variable.                               #
         #######################################################################
-        pass
+
+        x_hat = (x - running_mean) / np.sqrt(running_var + eps)
+        out = gamma * x_hat + beta
+
+        # TODO: Assign cache
+
         #######################################################################
         #                          END OF YOUR CODE                           #
         #######################################################################

@@ -22,6 +22,15 @@ $ source .venv/bin/activate
 $ python -m pip install -r requirements.txt
 ```
 
+## Notebook 清理
+
+安装并启用 `pre-commit` 钩子，在提交前自动清理 notebook 的输出内容。
+
+```shell
+$ python -m pip install pre-commit
+$ pre-commit install
+```
+
 ## 状态
 
 - [ ] Assignment 1

@@ -22,6 +22,15 @@ $ source .venv/bin/activate
 $ python -m pip install -r requirements.txt
 ```
 
+## Notebook Hygiene
+
+Set up the `pre-commit` hook to automatically clear notebook outputs before every commit.
+
+```shell
+$ python -m pip install pre-commit
+$ pre-commit install
+```
+
 ## Status
 
 - [ ] Assignment 1
