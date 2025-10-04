@@ -1,0 +1,9 @@
+# CS231n Assignment 1 Dependencies
+numpy>=1.21.0,<2.0.0
+matplotlib>=3.5.0
+scipy>=1.7.0
+imageio>=2.9.0
+ipykernel>=6.0.0
+# For Python 2/3 compatibility (if needed)
+future>=0.18.0
+six>=1.16.0
