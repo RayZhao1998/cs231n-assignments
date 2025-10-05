@@ -40,7 +40,7 @@ $ pre-commit install
     - [ ] Q4: Higher Level Representations: Image Features
     - [ ] Q5: Training a fully connected network
 - [ ] Assignment 2
-    - [ ] Q1: Batch Normalization
+    - [x] Q1: Batch Normalization
     - [ ] Q2: Dropout
     - [ ] Q3: Convolutional Neural Networks
     - [ ] Q4: PyTorch on CIFAR-10
