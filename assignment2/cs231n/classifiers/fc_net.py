@@ -166,9 +166,12 @@ class FullyConnectedNet(object):
                 out, cache_layernorm = layernorm_forward(out, self.params[f"gamma{i + 1}"], self.params[f"beta{i + 1}"], self.bn_params[i])
                 caches[f"layernorm_cache_{i + 1}"] = cache_layernorm
 
-            output_relu, cache_relu = relu_forward(out)
-            out = output_relu
+            out, cache_relu = relu_forward(out)
             caches[f"relu_cache_{i + 1}"] = cache_relu
+
+            if self.use_dropout:
+                out, cache_dropout = dropout_forward(out, dropout_param=self.dropout_param)
+                caches[f"dropout_cache_{i + 1}"] = cache_dropout
 
         scores, affine_cache_last = affine_forward(out, self.params[f"W{self.num_layers}"], self.params[f"b{self.num_layers}"])
         caches[f"affine_cache_{self.num_layers}"] = affine_cache_last
@@ -210,6 +213,8 @@ class FullyConnectedNet(object):
         grads[f"b{self.num_layers}"] = db_last
 
         for i in reversed(range(self.num_layers - 1)):
+            if self.use_dropout:
+                dx = dropout_backward(dx, cache=caches[f"dropout_cache_{i + 1}"])
             dx = relu_backward(dx, cache=caches[f"relu_cache_{i + 1}"])
             if self.normalization == 'batchnorm':
                 dx, dgamma, dbeta = batchnorm_backward_alt(dx, cache=caches[f"batchnorm_cache_{i + 1}"])

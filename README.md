@@ -22,15 +22,6 @@ $ source .venv/bin/activate
 $ python -m pip install -r requirements.txt
 ```
 
-## Notebook Hygiene
-
-Set up the `pre-commit` hook to automatically clear notebook outputs before every commit.
-
-```shell
-$ python -m pip install pre-commit
-$ pre-commit install
-```
-
 ## Status
 
 - [ ] Assignment 1
@@ -41,7 +32,7 @@ $ pre-commit install
     - [ ] Q5: Training a fully connected network
 - [ ] Assignment 2
     - [x] Q1: Batch Normalization
-    - [ ] Q2: Dropout
+    - [x] Q2: Dropout
     - [ ] Q3: Convolutional Neural Networks
     - [ ] Q4: PyTorch on CIFAR-10
     - [ ] Q5: Image Captioning with Vanilla RNNs
