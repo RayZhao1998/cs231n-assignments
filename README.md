@@ -26,7 +26,7 @@ $ python -m pip install -r requirements.txt
 
 - [ ] Assignment 1
     - [x] Q1: k-Nearest Neighbor classifier
-    - [ ] Q2: Implement a Softmax classifier
+    - [x] Q2: Implement a Softmax classifier
     - [ ] Q3: Two-Layer Neural Network
     - [ ] Q4: Higher Level Representations: Image Features
     - [ ] Q5: Training a fully connected network
