@@ -24,12 +24,14 @@ $ python -m pip install -r requirements.txt
 
 ## Status
 
-- [ ] Assignment 1
+Recommend order: Assignment 1 Q1-Q4，Assignment 2 Q1-Q2，Assignment 1 Q5
+
+- [x] Assignment 1
     - [x] Q1: k-Nearest Neighbor classifier
     - [x] Q2: Implement a Softmax classifier
-    - [ ] Q3: Two-Layer Neural Network
-    - [ ] Q4: Higher Level Representations: Image Features
-    - [ ] Q5: Training a fully connected network
+    - [x] Q3: Two-Layer Neural Network
+    - [x] Q4: Higher Level Representations: Image Features
+    - [x] Q5: Training a fully connected network
 - [ ] Assignment 2
     - [x] Q1: Batch Normalization
     - [x] Q2: Dropout
