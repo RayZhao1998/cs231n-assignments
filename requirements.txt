@@ -7,3 +7,5 @@ ipykernel>=6.0.0
 # For Python 2/3 compatibility (if needed)
 future>=0.18.0
 six>=1.16.0
+torch
+torchvision
