@@ -43,7 +43,9 @@ def rnn_step_forward(x, prev_h, Wx, Wh, b):
     ##############################################################################
     # TODO: Implement a single forward step for the vanilla RNN.                 #
     ##############################################################################
-    # 
+
+    next_h = torch.tanh(prev_h @ Wh + x @ Wx + b)
+
     ##############################################################################
     #                               END OF YOUR CODE                             #
     ##############################################################################
@@ -73,7 +75,23 @@ def rnn_forward(x, h0, Wx, Wh, b):
     # input data. You should use the rnn_step_forward function that you defined  #
     # above. You can use a for loop to help compute the forward pass.            #
     ##############################################################################
-    # 
+    # x: (N, T, D)
+    # h0: (N, H)
+    N, T, D = x.shape
+    H = h0.shape[1]
+
+    # Allocate output tensor for all hidden states
+    h = torch.zeros(N, T, H, dtype=h0.dtype, device=h0.device)
+
+    # Start from initial hidden state
+    prev_h = h0
+
+    # Iterate over time steps and use the single-step forward
+    for t in range(T):
+        xt = x[:, t, :]              # (N, D)
+        next_h = rnn_step_forward(xt, prev_h, Wx, Wh, b)  # (N, H)
+        h[:, t, :] = next_h
+        prev_h = next_h
     ##############################################################################
     #                               END OF YOUR CODE                             #
     ##############################################################################
