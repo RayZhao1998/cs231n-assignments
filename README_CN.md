@@ -37,7 +37,7 @@ $ python -m pip install -r requirements.txt
     - [x] Q2: Dropout
     - [x] Q3: Convolutional Neural Networks
     - [x] Q4: PyTorch on CIFAR-10
-    - [ ] Q5: Image Captioning with Vanilla RNNs
+    - [x] Q5: Image Captioning with Vanilla RNNs
 - [ ] Assignment 3
     - [ ] Q1: Image Captioning with Transformers
     - [ ] Q2: Self-Supervised Learning for Image Classification

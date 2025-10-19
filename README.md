@@ -37,7 +37,7 @@ Recommend order: Assignment 1 Q1-Q4，Assignment 2 Q1-Q2，Assignment 1 Q5
     - [x] Q2: Dropout
     - [x] Q3: Convolutional Neural Networks
     - [x] Q4: PyTorch on CIFAR-10
-    - [ ] Q5: Image Captioning with Vanilla RNNs
+    - [x] Q5: Image Captioning with Vanilla RNNs
 - [ ] Assignment 3
     - [ ] Q1: Image Captioning with Transformers
     - [ ] Q2: Self-Supervised Learning for Image Classification
